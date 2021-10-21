@@ -3,4 +3,6 @@
     <string name="error_message_empty_url">Ссылка пустая</string>
     <string name="reload">Перезагрузка</string>
     <string name="photo_of_the_day_stub">Фото дня</string>
+    <string name="search_wiki">Искать на Wikipedia</string>
+    <string name="wiki_helper_text">Введите текст для поиска</string>
 </resources>

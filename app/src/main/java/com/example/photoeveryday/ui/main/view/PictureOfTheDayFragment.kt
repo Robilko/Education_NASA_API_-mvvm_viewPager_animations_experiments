@@ -1,5 +1,7 @@
 package com.example.photoeveryday.ui.main.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,7 +36,12 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getData().observe(viewLifecycleOwner, Observer<PictureOfTheDayData> { renderData(it) })
+        viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
+        binding.inputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+            })
+        }
     }
 
     private fun renderData(data: PictureOfTheDayData) {
@@ -48,7 +55,7 @@ class PictureOfTheDayFragment : Fragment() {
                     binding.main.showSnackBar(
                         getString(R.string.error_message_empty_url),
                         getString(R.string.reload),
-                        { View.OnClickListener() { _ -> } }
+                        { View.OnClickListener { } }
                     )
                 } else {
                     //Отобразите фото
