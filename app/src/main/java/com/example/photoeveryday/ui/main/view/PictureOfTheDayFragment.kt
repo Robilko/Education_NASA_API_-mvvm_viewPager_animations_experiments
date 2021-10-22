@@ -61,15 +61,23 @@ class PictureOfTheDayFragment : Fragment() {
                 val serverResponseData = data.serverResponseData
                 serverResponseData.url?.let {
                     showSuccess(serverResponseData)
+                    showLoadingLayout(false)
                 } ?: showError(getString(R.string.error_message_empty_url))
             }
             is PictureOfTheDayData.Loading -> {
-                //Отобразите загрузку
-                // showLoading()
+                showLoadingLayout(true)
             }
             is PictureOfTheDayData.Error -> {
-                //Отобразите ошибку
+                showLoadingLayout(false)
+                showError(data.error.message.toString())
+
             }
+        }
+    }
+
+    private fun showLoadingLayout(state: Boolean) {
+        with(binding.includedLoadingLayout.loadingLayout) {
+            if (state) this.visibility = View.VISIBLE else this.visibility = View.GONE
         }
     }
 
