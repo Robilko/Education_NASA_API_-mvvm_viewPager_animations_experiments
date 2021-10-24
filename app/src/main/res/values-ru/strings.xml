@@ -5,4 +5,7 @@
     <string name="photo_of_the_day_stub">Фото дня</string>
     <string name="search_wiki">Искать на Wikipedia</string>
     <string name="wiki_helper_text">Введите текст для поиска</string>
+    <string name="favourite">Избранное</string>
+    <string name="settings">Настройки</string>
+    <string name="search">Поиск</string>
 </resources>
