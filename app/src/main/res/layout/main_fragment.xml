@@ -38,18 +38,24 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.example.photoeveryday.ui.main.utils.EquilateralImageView
-                android:id="@+id/image_view"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="@string/photo_of_the_day_stub"
-                android:paddingVertical="5dp"
-                app:srcCompat="@drawable/ic_no_photo_vector" />
+                android:layout_height="wrap_content">
 
-            <include
-                android:id="@+id/included_loading_layout"
-                layout="@layout/loading_layout"/>
+                <com.example.photoeveryday.ui.main.utils.EquilateralImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/photo_of_the_day_stub"
+                    android:paddingVertical="5dp"
+                    app:srcCompat="@drawable/ic_no_photo_vector" />
+
+                <include
+                    android:id="@+id/included_loading_layout"
+                    layout="@layout/loading_layout"/>
+
+            </FrameLayout>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
