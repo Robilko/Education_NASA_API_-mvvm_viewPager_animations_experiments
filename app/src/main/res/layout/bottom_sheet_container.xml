@@ -33,6 +33,7 @@
         android:background="@color/bottom_sheet_header_background"
         android:textColor="@color/design_default_color_on_primary"
         android:textStyle="bold"
+        android:textIsSelectable="true"
         tools:text="Two Clusters and a Comet" />
 
     <TextView
@@ -40,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/bottom_sheet_text_color"
+        android:textIsSelectable="true"
         android:padding="@dimen/padding_default"
         tools:text="This lovely starfield spans some four full moons." />
 
