@@ -14,4 +14,16 @@
         <!-- Customize your theme here. -->
 
     </style>
+
+    <style name="SettingsHeaders">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/padding_default</item>
+        <item name="android:paddingBottom">@dimen/padding_default</item>
+        <item name="android:background">@color/design_default_color_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
 </resources>

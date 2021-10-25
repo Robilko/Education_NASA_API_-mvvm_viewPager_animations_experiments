@@ -8,4 +8,6 @@
     <string name="favourite">Избранное</string>
     <string name="settings">Настройки</string>
     <string name="search">Поиск</string>
+    <string name="header_text_theme_selection">Выбор темы приложения:</string>
+    <string name="header_text_font_selection">Выбор шрифта:</string>
 </resources>

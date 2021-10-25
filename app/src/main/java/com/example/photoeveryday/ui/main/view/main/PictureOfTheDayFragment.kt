@@ -1,4 +1,4 @@
-package com.example.photoeveryday.ui.main.view
+package com.example.photoeveryday.ui.main.view.main
 
 import android.content.Intent
 import android.net.Uri
@@ -15,6 +15,9 @@ import com.example.photoeveryday.databinding.MainFragmentBinding
 import com.example.photoeveryday.ui.main.repository.PODServerResponseData
 import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
 import com.example.photoeveryday.ui.main.utils.showSnackBar
+import com.example.photoeveryday.ui.main.view.BottomNavigationDrawerFragment
+import com.example.photoeveryday.ui.main.view.MainActivity
+import com.example.photoeveryday.ui.main.view.SettingsFragment
 import com.example.photoeveryday.ui.main.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_container.*
@@ -60,7 +63,11 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_bar_fav -> Toast.makeText(context, resources.getString(R.string.favourite), Toast.LENGTH_SHORT).show()
-            R.id.app_bar_settings -> Toast.makeText(context, resources.getString(R.string.settings), Toast.LENGTH_SHORT).show()
+            R.id.app_bar_settings -> {
+                activity?.let {
+                    it.supportFragmentManager.beginTransaction().replace(R.id.container, SettingsFragment()).addToBackStack(null).commit()
+                }
+            }
             android.R.id.home -> {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(

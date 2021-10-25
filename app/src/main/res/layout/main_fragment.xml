@@ -40,7 +40,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_default">
 
                 <com.example.photoeveryday.ui.main.utils.EquilateralImageView
                     android:id="@+id/image_view"
@@ -48,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/photo_of_the_day_stub"
-                    android:paddingVertical="5dp"
+                    android:paddingVertical="@dimen/padding_default"
                     app:srcCompat="@drawable/ic_no_photo_vector" />
 
                 <include
