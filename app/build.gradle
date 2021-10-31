@@ -59,7 +59,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
-    //Koil image download (аналог Picasso и Glide, написанный на Kotlin)
+    //Coil image download (аналог Picasso и Glide, написанный на Kotlin)
     implementation("io.coil-kt:coil:0.11.0")
 
     //Retrofit - знакомая нам по прошлому курсу библиотека

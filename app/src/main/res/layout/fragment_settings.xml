@@ -23,22 +23,20 @@
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:id="@+id/default_theme"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Theme 1" />
+            android:checkable="true"
+            android:text="@string/default_theme_name" />
 
         <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:id="@+id/cosmic_theme"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Theme 2" />
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Theme 3" />
+            android:checkable="true"
+            android:text="@string/cosmic_theme_name" />
     </com.google.android.material.chip.ChipGroup>
 
     <TextView
@@ -60,19 +58,19 @@
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Font 1" />
+            android:text="@string/font_1" />
 
         <com.google.android.material.chip.Chip
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Font 2" />
+            android:text="@string/font_2" />
 
         <com.google.android.material.chip.Chip
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Font 3" />
+            android:text="@string/font_3" />
     </com.google.android.material.chip.ChipGroup>
 
 </LinearLayout>
