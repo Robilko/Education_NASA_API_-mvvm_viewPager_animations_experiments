@@ -1,4 +1,4 @@
-package com.example.photoeveryday.ui.main.view.main
+package com.example.photoeveryday.ui.main.view
 
 import android.content.Intent
 import android.net.Uri
@@ -15,9 +15,6 @@ import com.example.photoeveryday.databinding.MainFragmentBinding
 import com.example.photoeveryday.ui.main.repository.PODServerResponseData
 import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
 import com.example.photoeveryday.ui.main.utils.showSnackBar
-import com.example.photoeveryday.ui.main.view.BottomNavigationDrawerFragment
-import com.example.photoeveryday.ui.main.view.MainActivity
-import com.example.photoeveryday.ui.main.view.SettingsFragment
 import com.example.photoeveryday.ui.main.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_container.*

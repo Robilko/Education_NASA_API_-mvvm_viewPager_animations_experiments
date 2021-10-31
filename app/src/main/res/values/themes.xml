@@ -30,7 +30,6 @@
         <item name="bottomSheetColor">@color/Cosmic_theme_color_primary_variant</item>
         <item name="settingsHeaderBackground">@color/Cosmic_theme_color_primary</item>
         <item name="android:fontFamily">@font/baumans</item>
-        <item name="android:textSize">@dimen/default_textSize</item>
     </style>
 
 
