@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.photoeveryday.R
 import com.example.photoeveryday.databinding.FragmentSettingsBinding
 import com.example.photoeveryday.ui.main.utils.*
 import com.google.android.material.chip.Chip
@@ -25,11 +26,15 @@ class SettingsFragment : Fragment() {
 
     private fun loadSettings() {
         with(binding) {
-            val checkedId =
-                requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE).getInt(
-                    CHIP_THEME_SELECTED, defaultTheme.id
-                )
-            chipGroupThemeSelection.findViewById<Chip>(checkedId).isChecked = true
+            val theme =
+                requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
+                    .getString(THEME_PREFERENCES, KEY_DEFAULT_THEME)
+
+            if (theme.equals(KEY_COSMIC_THEME)) {
+                cosmicTheme.isChecked = true
+            } else {
+                defaultTheme.isChecked = true
+            }
         }
     }
 
@@ -38,11 +43,10 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loadSettings()
         with(binding) {
-            chipGroupThemeSelection.setOnCheckedChangeListener { chipGroup, checkedId ->
-                when (chipGroup.findViewById<Chip>(checkedId)) {
-                    defaultTheme -> saveThemeMode(KEY_DEFAULT_THEME, checkedId)
-                    cosmicTheme -> saveThemeMode(KEY_COSMIC_THEME, checkedId)
-
+            chipGroupThemeSelection.setOnCheckedChangeListener { _, checkedId ->
+                when (checkedId) {
+                    defaultTheme.id -> saveThemeMode(KEY_DEFAULT_THEME)
+                    cosmicTheme.id -> saveThemeMode(KEY_COSMIC_THEME)
                 }
             }
             chipGroupFontSelection.setOnCheckedChangeListener { chipGroup, checkedId ->
@@ -53,11 +57,10 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    private fun saveThemeMode(theme: String, checkedId: Int) {
+    private fun saveThemeMode(theme: String) {
         requireContext().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
             .edit()
             .putString(THEME_PREFERENCES, theme)
-            .putInt(CHIP_THEME_SELECTED, checkedId)
             .apply()
         requireActivity().recreate()
     }
