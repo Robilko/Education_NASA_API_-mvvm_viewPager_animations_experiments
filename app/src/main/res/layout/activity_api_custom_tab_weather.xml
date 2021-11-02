@@ -9,7 +9,7 @@
         android:id="@+id/tab_image_textview"
         style="@style/CustomTabStyle"
         android:drawableStart="@drawable/ic_system"
-        android:text="@string/system"
+        android:text="@string/weather"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

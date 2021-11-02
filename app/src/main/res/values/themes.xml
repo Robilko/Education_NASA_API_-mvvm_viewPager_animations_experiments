@@ -57,6 +57,6 @@
         <item name="android:drawablePadding">10dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/default_textSize</item>
+        <item name="android:textSize">15sp</item>
     </style>
 </resources>
