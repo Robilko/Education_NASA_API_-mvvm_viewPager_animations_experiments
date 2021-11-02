@@ -9,4 +9,25 @@
         android:layout_height="match_parent"
         app:srcCompat="@drawable/bg_earth"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/swipe_indication_group_margin">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/SwipeIndication"
+            android:src="@drawable/swipe_indicator_active"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/SwipeIndication"
+            android:src="@drawable/swipe_indicator_passive"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/SwipeIndication"
+            android:src="@drawable/swipe_indicator_passive"/>
+
+    </LinearLayout>
+
 </FrameLayout>

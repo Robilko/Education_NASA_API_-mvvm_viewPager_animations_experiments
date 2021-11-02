@@ -109,6 +109,7 @@
         app:backgroundTint="@color/design_default_color_primary"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true"
+        android:backgroundTint="?attr/bottomAppBarColor"
         app:layout_scrollFlags="scroll|enterAlways"
         app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar" />
 

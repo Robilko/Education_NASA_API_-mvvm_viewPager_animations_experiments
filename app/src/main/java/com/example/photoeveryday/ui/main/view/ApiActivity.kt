@@ -9,6 +9,7 @@ class ApiActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.api_activity)
         val viewPager = findViewById<ViewPager>(R.id.view_pager)
         viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
     }

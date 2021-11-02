@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/amita</item>
         <item name="bottomSheetColor">@color/design_default_color_primary_variant</item>
+        <item name="bottomAppBarColor">@color/purple_500</item>
         <item name="settingsHeaderBackground">@color/design_default_color_primary</item>
 
 
@@ -28,6 +29,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/Cosmic_theme_color_primary_variant</item>
         <item name="bottomSheetColor">@color/Cosmic_theme_color_primary_variant</item>
+        <item name="bottomAppBarColor">@color/Cosmic_theme_color_primary</item>
         <item name="settingsHeaderBackground">@color/Cosmic_theme_color_primary</item>
         <item name="android:fontFamily">@font/baumans</item>
     </style>
@@ -41,5 +43,11 @@
         <item name="android:paddingBottom">@dimen/padding_default</item>
         <item name="android:background">?attr/settingsHeaderBackground</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SwipeIndication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">7dp</item>
     </style>
 </resources>

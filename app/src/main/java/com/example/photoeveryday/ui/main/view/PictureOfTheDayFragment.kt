@@ -131,4 +131,8 @@ class PictureOfTheDayFragment : Fragment() {
             { View.OnClickListener { } }
         )
     }
+
+    companion object {
+        fun newInstance() = PictureOfTheDayFragment()
+    }
 }

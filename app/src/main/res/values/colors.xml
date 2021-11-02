@@ -17,4 +17,7 @@
     <color name="Cosmic_theme_color_on_primary">#8BC34A</color>
     <color name="Cosmic_theme_color_secondary">#00ACC1</color>
     <color name="Cosmic_theme_color_secondary_variant">#006064</color>
+
+    <color name="colorAccent">#2962FF</color>
+    <color name="colorAccent40Alfa">#662962FF</color>
 </resources>

@@ -15,4 +15,6 @@
     <string name="font_1" translatable="false">amatic_sc</string>
     <string name="font_2" translatable="false">amita</string>
     <string name="font_3" translatable="false">baumans</string>
+    <string name="nav_title_photo_of_the_day">Today photo</string>
+    <string name="nav_title_planets_photo">Planets photo</string>
 </resources>
