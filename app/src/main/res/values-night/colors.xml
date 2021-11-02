@@ -10,4 +10,6 @@
     <color name="Cosmic_theme_color_secondary">#C5CAE9</color>
     <color name="Cosmic_theme_color_secondary_variant">#0097A7</color>
     <color name="tab_text_icon_color">#f6f6fa</color>
+    <color name="swipe_indicator_active">#f6f6fa</color>
+    <color name="swipe_indicator_passive">#66f6f6fa</color>
 </resources>
