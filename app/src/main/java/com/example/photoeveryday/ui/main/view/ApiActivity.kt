@@ -1,6 +1,7 @@
 package com.example.photoeveryday.ui.main.view
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.photoeveryday.R
@@ -14,8 +15,13 @@ class ApiActivity : AppCompatActivity() {
         val viewPager = findViewById<ViewPager>(R.id.view_pager)
         viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
         tab_layout.setupWithViewPager(view_pager)
-        tab_layout.getTabAt(0)?.setIcon(R.drawable.ic_earth)
-        tab_layout.getTabAt(1)?.setIcon(R.drawable.ic_mars)
-        tab_layout.getTabAt(2)?.setIcon(R.drawable.ic_system)
+        setCustomTabs()
+    }
+
+    private fun setCustomTabs() {
+        val layoutInflater = LayoutInflater.from(this)
+        tab_layout.getTabAt(0)?.customView = layoutInflater.inflate(R.layout.activity_api_custom_tab_earth, null)
+        tab_layout.getTabAt(1)?.customView = layoutInflater.inflate(R.layout.activity_api_custom_tab_mars, null)
+        tab_layout.getTabAt(2)?.customView = layoutInflater.inflate(R.layout.activity_api_custom_tab_weather, null)
     }
 }

@@ -14,4 +14,7 @@
     <string name="cosmic_theme_name">Космическая</string>
     <string name="nav_title_photo_of_the_day">Фото дня</string>
     <string name="nav_title_planets_photo">Фото планет</string>
+    <string name="earth">Земля</string>
+    <string name="mars">Марс</string>
+    <string name="system">Система</string>
 </resources>

@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.photoeveryday.R
 import com.example.photoeveryday.databinding.FragmentSettingsBinding
 import com.example.photoeveryday.ui.main.utils.*
 import com.google.android.material.chip.Chip
@@ -24,21 +23,6 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
-    private fun loadSettings() {
-        with(binding) {
-            val theme =
-                requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
-                    .getString(THEME_PREFERENCES, KEY_DEFAULT_THEME)
-
-            if (theme.equals(KEY_COSMIC_THEME)) {
-                cosmicTheme.isChecked = true
-            } else {
-                defaultTheme.isChecked = true
-            }
-        }
-    }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadSettings()
@@ -53,6 +37,20 @@ class SettingsFragment : Fragment() {
                 chipGroup.findViewById<Chip>(checkedId)?.let {
                     Toast.makeText(context, "Выбран ${it.text}", Toast.LENGTH_SHORT).show()
                 }
+            }
+        }
+    }
+
+    private fun loadSettings() {
+        with(binding) {
+            val theme =
+                requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
+                    .getString(THEME_PREFERENCES, KEY_DEFAULT_THEME)
+
+            if (theme.equals(KEY_COSMIC_THEME)) {
+                cosmicTheme.isChecked = true
+            } else {
+                defaultTheme.isChecked = true
             }
         }
     }

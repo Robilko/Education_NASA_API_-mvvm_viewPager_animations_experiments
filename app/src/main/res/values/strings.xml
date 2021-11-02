@@ -17,4 +17,7 @@
     <string name="font_3" translatable="false">baumans</string>
     <string name="nav_title_photo_of_the_day">Today photo</string>
     <string name="nav_title_planets_photo">Planets photo</string>
+    <string name="earth">Earth</string>
+    <string name="mars">Mars</string>
+    <string name="system">System</string>
 </resources>
