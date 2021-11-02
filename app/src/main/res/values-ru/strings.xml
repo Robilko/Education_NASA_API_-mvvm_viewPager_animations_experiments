@@ -17,4 +17,5 @@
     <string name="earth">Земля</string>
     <string name="mars">Марс</string>
     <string name="weather">Погода</string>
+    <string name="don_t_released_yet">Еще не реализовано</string>
 </resources>

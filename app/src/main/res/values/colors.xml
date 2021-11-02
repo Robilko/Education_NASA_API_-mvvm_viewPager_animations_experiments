@@ -20,4 +20,5 @@
 
     <color name="colorAccent">#2962FF</color>
     <color name="colorAccent40Alfa">#662962FF</color>
+    <color name="tab_text_icon_color">#FF000000</color>
 </resources>

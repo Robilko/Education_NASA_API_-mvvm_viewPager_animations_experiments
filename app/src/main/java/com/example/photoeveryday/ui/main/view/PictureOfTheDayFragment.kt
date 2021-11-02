@@ -59,7 +59,11 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_fav -> Toast.makeText(context, resources.getString(R.string.favourite), Toast.LENGTH_SHORT).show()
+            R.id.app_bar_fav -> {
+                activity?.let {
+                    startActivity(Intent(it, ApiActivity::class.java))
+                }
+            }
             R.id.app_bar_settings -> {
                 activity?.let {
                     it.supportFragmentManager.beginTransaction().replace(R.id.container, SettingsFragment()).addToBackStack(null).commit()

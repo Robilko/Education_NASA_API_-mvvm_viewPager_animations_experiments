@@ -3,12 +3,8 @@
     <group android:checkableBehavior="none">
         <item
             android:id="@+id/navigation_one"
-            android:icon="@drawable/ic_telescope"
-            android:title="@string/nav_title_photo_of_the_day" />
-        <item
-            android:id="@+id/navigation_two"
-            android:icon="@drawable/ic_system"
-            android:title="@string/nav_title_planets_photo" />
+            android:icon="@drawable/ic_load_error_vector"
+            android:title="@string/don_t_released_yet" />
     </group>
 
 </menu>

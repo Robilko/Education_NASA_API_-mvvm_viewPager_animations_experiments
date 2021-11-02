@@ -5,4 +5,5 @@
     <dimen name="padding_default">10dp</dimen>
     <dimen name="default_textSize">20sp</dimen>
     <dimen name="swipe_indication_group_margin">20dp</dimen>
+    <dimen name="settings_header_height">40dp</dimen>
 </resources>

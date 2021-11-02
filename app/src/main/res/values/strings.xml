@@ -20,4 +20,5 @@
     <string name="earth">Earth</string>
     <string name="mars">Mars</string>
     <string name="weather">Weather</string>
+    <string name="don_t_released_yet">don\'t released yet</string>
 </resources>
