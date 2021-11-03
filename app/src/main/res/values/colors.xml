@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
     <color name="bottom_sheet_background">#f6f6fa</color>
     <color name="bottom_sheet_header_background">#FF6200EE</color>
     <color name="bottom_sheet_line_background">#663b4351</color>
     <color name="bottom_sheet_text_color">#000</color>
-
-    <color name="Cosmic_theme_color_primary">#E53935</color>
-    <color name="Cosmic_theme_color_primary_variant">#D81B60</color>
-    <color name="Cosmic_theme_color_on_primary">#8BC34A</color>
-    <color name="Cosmic_theme_color_secondary">#00ACC1</color>
-    <color name="Cosmic_theme_color_secondary_variant">#006064</color>
-
     <color name="colorAccent">#2962FF</color>
     <color name="colorAccent40Alfa">#662962FF</color>
     <color name="tab_text_icon_color">#FF000000</color>
     <color name="swipe_indicator_active">#FF000000</color>
     <color name="swipe_indicator_passive">#66000000</color>
+
+    <!--    Default theme colors-->
+    <!-- Primary brand color. -->
+    <color name="Default_theme_color_primary">#FF6200EE</color>
+    <color name="Default_theme_color_primary_variant">#FF3700B3</color>
+    <color name="Default_theme_color_on_primary">#FFFFFFFF</color>
+    <!-- Secondary brand color. -->
+    <color name="Default_theme_color_secondary">#FF03DAC5</color>
+    <color name="Default_theme_color_secondary_variant">#FF018786</color>
+    <color name="Default_theme_color_on_secondary">#FF000000</color>
+
+    <!--    Cosmic theme colors-->
+    <!-- Primary brand color. -->
+    <color name="Red_Rose_theme_color_primary">#E53935</color>
+    <color name="Red_Rose_theme_color_primary_variant">#D81B60</color>
+    <color name="Red_Rose_theme_color_on_primary">#8BC34A</color>
+    <!-- Secondary brand color. -->
+    <color name="Red_Rose_theme_color_secondary">#00ACC1</color>
+    <color name="Red_Rose_theme_color_secondary_variant">#006064</color>
+    <color name="Red_Rose_theme_color_on_secondary">#FF000000</color>
 </resources>

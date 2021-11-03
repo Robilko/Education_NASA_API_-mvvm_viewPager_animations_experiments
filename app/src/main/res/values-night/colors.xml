@@ -3,13 +3,26 @@
     <color name="bottom_sheet_background">#292525</color>
     <color name="bottom_sheet_text_color">#f6f6fa</color>
     <color name="bottom_sheet_header_background">#FFBB86FC</color>
-
-    <color name="Cosmic_theme_color_primary">#D18D94</color>
-    <color name="Cosmic_theme_color_primary_variant">#F48FB1</color>
-    <color name="Cosmic_theme_color_on_primary">#1C1B1B</color>
-    <color name="Cosmic_theme_color_secondary">#C5CAE9</color>
-    <color name="Cosmic_theme_color_secondary_variant">#0097A7</color>
     <color name="tab_text_icon_color">#f6f6fa</color>
     <color name="swipe_indicator_active">#f6f6fa</color>
     <color name="swipe_indicator_passive">#66f6f6fa</color>
+
+    <!--    Default theme colors-->
+    <!-- Primary brand color. -->
+    <color name="Default_theme_color_primary">#FFBB86FC</color>
+    <color name="Default_theme_color_primary_variant">#552AB5</color>
+    <color name="Default_theme_color_on_primary">#FF000000</color>
+    <!-- Secondary brand color. -->
+    <color name="Default_theme_color_secondary">#4DD0E1</color>
+    <color name="Default_theme_color_secondary_variant">#4DB6AC</color>
+
+    <!--    Cosmic theme colors-->
+    <!-- Primary brand color. -->
+    <color name="Red_Rose_theme_color_primary">#D18D94</color>
+    <color name="Red_Rose_theme_color_primary_variant">#F48FB1</color>
+    <color name="Red_Rose_theme_color_on_primary">#1C1B1B</color>
+    <!-- Secondary brand color. -->
+    <color name="Red_Rose_theme_color_secondary">#80DEEA</color>
+    <color name="Red_Rose_theme_color_secondary_variant">#26A69A</color>
+
 </resources>

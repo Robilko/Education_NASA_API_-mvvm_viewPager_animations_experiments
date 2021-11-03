@@ -30,7 +30,7 @@ class SettingsFragment : Fragment() {
             chipGroupThemeSelection.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
                     defaultTheme.id -> saveThemeMode(KEY_DEFAULT_THEME)
-                    cosmicTheme.id -> saveThemeMode(KEY_COSMIC_THEME)
+                    cosmicTheme.id -> saveThemeMode(KEY_RED_ROSE_THEME)
                 }
             }
             chipGroupFontSelection.setOnCheckedChangeListener { chipGroup, checkedId ->
@@ -47,7 +47,7 @@ class SettingsFragment : Fragment() {
                 requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
                     .getString(THEME_PREFERENCES, KEY_DEFAULT_THEME)
 
-            if (theme.equals(KEY_COSMIC_THEME)) {
+            if (theme.equals(KEY_RED_ROSE_THEME)) {
                 cosmicTheme.isChecked = true
             } else {
                 defaultTheme.isChecked = true

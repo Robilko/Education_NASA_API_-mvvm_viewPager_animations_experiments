@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
     private fun setTheme() {
         val theme = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE).getString(THEME_PREFERENCES, KEY_DEFAULT_THEME)
 
-        if (theme.equals(KEY_COSMIC_THEME)) {
-            setTheme(R.style.CosmicTheme)
+        if (theme.equals(KEY_RED_ROSE_THEME)) {
+            setTheme(R.style.RedRoseTheme)
         } else {
-            setTheme(R.style.Theme_PhotoEveryDay)
+            setTheme(R.style.DefaultTheme)
         }
     }
 }
