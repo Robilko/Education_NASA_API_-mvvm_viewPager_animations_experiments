@@ -1,5 +1,6 @@
 package com.example.photoeveryday.ui.main.view
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,9 +15,10 @@ import com.example.photoeveryday.R
 import com.example.photoeveryday.databinding.MainFragmentBinding
 import com.example.photoeveryday.ui.main.repository.PODServerResponseData
 import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
-import com.example.photoeveryday.ui.main.utils.showSnackBar
+import com.example.photoeveryday.ui.main.utils.*
 import com.example.photoeveryday.ui.main.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.bottom_sheet_container.*
 import kotlinx.android.synthetic.main.main_fragment.*
 
@@ -24,6 +26,7 @@ class PictureOfTheDayFragment : Fragment() {
     private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
+    private var checkedChip: String? = null
 
     //Ленивая инициализация модели
     private val viewModel: PictureOfTheDayViewModel by lazy {
@@ -41,15 +44,47 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadSettings()
         viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
         setBottomAppBar(view)
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
-        binding.inputLayout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data =
-                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
-            })
+        with(binding) {
+            inputLayout.setEndIconOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW).apply {
+                    data =
+                        Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+                })
+            }
+
+            chipGroupPreviousDays.setOnCheckedChangeListener{chipGroup, checkedId ->
+                chipGroup.findViewById<Chip>(checkedId)?.let {
+                    Toast.makeText(context, "Выбран ${it.text}", Toast.LENGTH_SHORT).show()
+                    checkedChip = when(checkedId) {
+                        yesterdayChip.id -> KEY_YESTERDAY_CHIP
+                        twoDaysAgoChip.id -> KEY_TWO_DAYS_AGO_CHIP
+                        else -> KEY_TODAY_CHIP
+                    }
+                    requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE).edit().putString(
+                        CHECKED_CHIP_ON_MAIN_FRAGMENT_PREFERENCES, checkedChip).apply()
+                }
+            }
         }
+
+    }
+
+    private fun loadSettings() {
+        checkedChip = requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE).getString(
+            CHECKED_CHIP_ON_MAIN_FRAGMENT_PREFERENCES, KEY_TODAY_CHIP)
+        with(binding) {
+            if (checkedChip.equals(KEY_YESTERDAY_CHIP)) {
+                yesterdayChip.isChecked = true
+            } else if (checkedChip.equals(KEY_TWO_DAYS_AGO_CHIP)) {
+                twoDaysAgoChip.isChecked = true
+            } else {
+                todayChip.isChecked = true
+            }
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
