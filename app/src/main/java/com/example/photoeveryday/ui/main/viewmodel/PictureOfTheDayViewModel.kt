@@ -1,7 +1,5 @@
 package com.example.photoeveryday.ui.main.viewmodel
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,35 +10,22 @@ import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+import java.util.*
 
 class PictureOfTheDayViewModel(
     private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> = MutableLiveData(),
     private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()
 ) : ViewModel() {
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun getTodayData() : LiveData<PictureOfTheDayData> {
-        val date = LocalDate.now().format(DateTimeFormatter.ISO_DATE)
-        sendServerRequest(date)
+    fun getData(amountOfMinusDays: Int) : LiveData<PictureOfTheDayData> {
+        sendServerRequest(getStringDateForRequest(amountOfMinusDays))
         return liveDataForViewToObserve
     }
 
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun getYesterdayData(): LiveData<PictureOfTheDayData> {
-        val date = LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_DATE)
-        sendServerRequest(date)
-        return liveDataForViewToObserve
-    }
-
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun getTwoDaysAgoData(): LiveData<PictureOfTheDayData> {
-        val date = LocalDate.now().minusDays(2).format(DateTimeFormatter.ISO_DATE)
-        sendServerRequest(date)
-        return liveDataForViewToObserve
+    private fun getStringDateForRequest(amountOfMinusDays: Int): String {
+        val date = Calendar.getInstance()
+        date.add(Calendar.DATE, amountOfMinusDays)
+        return "${date.get(Calendar.YEAR)}-${date.get(Calendar.MONTH) + 1}-${date.get(Calendar.DAY_OF_MONTH)}"
     }
 
     private fun sendServerRequest(date: String) {

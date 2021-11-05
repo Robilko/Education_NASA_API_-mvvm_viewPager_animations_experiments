@@ -2,12 +2,10 @@ package com.example.photoeveryday.ui.main.view
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.api.load
@@ -27,7 +25,6 @@ class PictureOfTheDayFragment : Fragment() {
     private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
-    private var checkedChip: String? = null
 
     //Ленивая инициализация модели
     private val viewModel: PictureOfTheDayViewModel by lazy {
@@ -43,10 +40,9 @@ class PictureOfTheDayFragment : Fragment() {
         return binding.root
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getTodayData().observe(viewLifecycleOwner, { renderData(it) })
+        viewModel.getData(0).observe(viewLifecycleOwner, { renderData(it) })
         setBottomAppBar(view)
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
         with(binding) {
@@ -61,9 +57,9 @@ class PictureOfTheDayFragment : Fragment() {
             chipGroupPreviousDays.setOnCheckedChangeListener { chipGroup, checkedId ->
                 chipGroup.findViewById<Chip>(checkedId)?.let {
                     when (checkedId) {
-                        yesterdayChip.id -> viewModel.getYesterdayData().observe(viewLifecycleOwner, { renderData(it) })
-                        twoDaysAgoChip.id -> viewModel.getTwoDaysAgoData().observe(viewLifecycleOwner, { renderData(it) })
-                        else -> viewModel.getTodayData().observe(viewLifecycleOwner, { renderData(it) })
+                        yesterdayChip.id -> viewModel.getData(-1).observe(viewLifecycleOwner, { renderData(it) })
+                        twoDaysAgoChip.id -> viewModel.getData(-2).observe(viewLifecycleOwner, { renderData(it) })
+                        else -> viewModel.getData(0).observe(viewLifecycleOwner, { renderData(it) })
                     }
                 }
             }
