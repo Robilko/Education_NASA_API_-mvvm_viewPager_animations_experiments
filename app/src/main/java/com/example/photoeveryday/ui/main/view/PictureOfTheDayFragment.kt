@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import coil.api.load
 import com.example.photoeveryday.R
 import com.example.photoeveryday.databinding.MainFragmentBinding
+import com.example.photoeveryday.databinding.MainFragmentStartBinding
 import com.example.photoeveryday.ui.main.repository.PODServerResponseData
 import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
 import com.example.photoeveryday.ui.main.utils.*
@@ -22,13 +23,13 @@ import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.*
 
 class PictureOfTheDayFragment : Fragment() {
-    private var _binding: MainFragmentBinding? = null
+    private var _binding: MainFragmentStartBinding? = null
     private val binding get() = _binding!!
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
 
     //Ленивая инициализация модели
     private val viewModel: PictureOfTheDayViewModel by lazy {
-        ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
+        ViewModelProvider(this)[PictureOfTheDayViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -36,7 +37,7 @@ class PictureOfTheDayFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = MainFragmentStartBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -57,8 +58,10 @@ class PictureOfTheDayFragment : Fragment() {
             chipGroupPreviousDays.setOnCheckedChangeListener { chipGroup, checkedId ->
                 chipGroup.findViewById<Chip>(checkedId)?.let {
                     when (checkedId) {
-                        yesterdayChip.id -> viewModel.getData(-1).observe(viewLifecycleOwner, { renderData(it) })
-                        twoDaysAgoChip.id -> viewModel.getData(-2).observe(viewLifecycleOwner, { renderData(it) })
+                        yesterdayChip.id -> viewModel.getData(-1)
+                            .observe(viewLifecycleOwner, { renderData(it) })
+                        twoDaysAgoChip.id -> viewModel.getData(-2)
+                            .observe(viewLifecycleOwner, { renderData(it) })
                         else -> viewModel.getData(0).observe(viewLifecycleOwner, { renderData(it) })
                     }
                 }
@@ -67,92 +70,92 @@ class PictureOfTheDayFragment : Fragment() {
 
     }
 
-override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-    super.onCreateOptionsMenu(menu, inflater)
-    inflater.inflate(R.menu.menu_bottom_bar, menu)
-}
-
-override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    when (item.itemId) {
-        R.id.app_bar_fav -> {
-            activity?.let {
-                startActivity(Intent(it, ApiActivity::class.java))
-            }
-        }
-        R.id.app_bar_settings -> {
-            activity?.let {
-                it.supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, SettingsFragment()).addToBackStack(null).commit()
-            }
-        }
-        android.R.id.home -> {
-            activity?.let {
-                BottomNavigationDrawerFragment().show(
-                    it.supportFragmentManager,
-                    "tag"
-                )
-            }
-        }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar, menu)
     }
-    return super.onOptionsItemSelected(item)
-}
 
-private fun setBottomAppBar(view: View) {
-    val context = activity as MainActivity
-    context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
-    setHasOptionsMenu(true)
-}
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.app_bar_fav -> {
+                activity?.let {
+                    startActivity(Intent(it, ApiActivity::class.java))
+                }
+            }
+            R.id.app_bar_settings -> {
+                activity?.let {
+                    it.supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, SettingsFragment()).addToBackStack(null).commit()
+                }
+            }
+            android.R.id.home -> {
+                activity?.let {
+                    BottomNavigationDrawerFragment().show(
+                        it.supportFragmentManager,
+                        "tag"
+                    )
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
-private fun setBottomSheetBehavior(bottomSheet: LinearLayout) {
-    bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
-    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-}
+    private fun setBottomAppBar(view: View) {
+        val context = activity as MainActivity
+        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
+        setHasOptionsMenu(true)
+    }
 
-private fun renderData(data: PictureOfTheDayData) {
-    when (data) {
-        is PictureOfTheDayData.Success -> {
-            val serverResponseData = data.serverResponseData
-            serverResponseData.url?.let {
-                showSuccess(serverResponseData)
+    private fun setBottomSheetBehavior(bottomSheet: LinearLayout) {
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+    }
+
+    private fun renderData(data: PictureOfTheDayData) {
+        when (data) {
+            is PictureOfTheDayData.Success -> {
+                val serverResponseData = data.serverResponseData
+                serverResponseData.url?.let {
+                    showSuccess(serverResponseData)
+                    showLoadingLayout(false)
+                } ?: showError(getString(R.string.error_message_empty_url))
+            }
+            is PictureOfTheDayData.Loading -> {
+                showLoadingLayout(true)
+            }
+            is PictureOfTheDayData.Error -> {
                 showLoadingLayout(false)
-            } ?: showError(getString(R.string.error_message_empty_url))
-        }
-        is PictureOfTheDayData.Loading -> {
-            showLoadingLayout(true)
-        }
-        is PictureOfTheDayData.Error -> {
-            showLoadingLayout(false)
-            showError(data.error.message.toString())
+                showError(data.error.message.toString())
 
+            }
         }
     }
-}
 
-private fun showLoadingLayout(state: Boolean) {
-    with(binding.includedLoadingLayout.loadingLayout) {
-        if (state) this.visibility = View.VISIBLE else this.visibility = View.GONE
+    private fun showLoadingLayout(state: Boolean) {
+        with(binding.includedLoadingLayout.loadingLayout) {
+            if (state) this.visibility = View.VISIBLE else this.visibility = View.GONE
+        }
     }
-}
 
-private fun showSuccess(data: PODServerResponseData) {
-    binding.imageView.load(data.url) {
-        lifecycle(this@PictureOfTheDayFragment)
-        error(R.drawable.ic_load_error_vector)
-        placeholder(R.drawable.ic_no_photo_vector)
+    private fun showSuccess(data: PODServerResponseData) {
+        binding.imageView.load(data.url) {
+            lifecycle(this@PictureOfTheDayFragment)
+            error(R.drawable.ic_load_error_vector)
+            placeholder(R.drawable.ic_no_photo_vector)
+        }
+        view?.findViewById<TextView>(R.id.bottom_sheet_description_header)?.text = data.title
+        view?.findViewById<TextView>(R.id.bottom_sheet_description)?.text = data.explanation
     }
-    view?.findViewById<TextView>(R.id.bottom_sheet_description_header)?.text = data.title
-    view?.findViewById<TextView>(R.id.bottom_sheet_description)?.text = data.explanation
-}
 
-private fun showError(error: String) {
-    binding.main.showSnackBar(
-        error,
-        getString(R.string.reload),
-        { View.OnClickListener { } }
-    )
-}
+    private fun showError(error: String) {
+        binding.main.showSnackBar(
+            error,
+            getString(R.string.reload),
+            { View.OnClickListener { } }
+        )
+    }
 
-companion object {
-    fun newInstance() = PictureOfTheDayFragment()
-}
+    companion object {
+        fun newInstance() = PictureOfTheDayFragment()
+    }
 }

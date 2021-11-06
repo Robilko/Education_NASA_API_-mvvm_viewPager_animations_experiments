@@ -21,4 +21,7 @@
     <string name="mars">Mars</string>
     <string name="weather">Weather</string>
     <string name="don_t_released_yet">don\'t released yet</string>
+    <string name="two_days_ago">Two days ago</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
 </resources>
