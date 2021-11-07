@@ -4,13 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.*
 import coil.api.load
 import com.example.photoeveryday.R
-import com.example.photoeveryday.databinding.MainFragmentBinding
 import com.example.photoeveryday.databinding.MainFragmentStartBinding
 import com.example.photoeveryday.ui.main.repository.PODServerResponseData
 import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
@@ -18,14 +19,13 @@ import com.example.photoeveryday.ui.main.utils.*
 import com.example.photoeveryday.ui.main.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
-import kotlinx.android.synthetic.main.bottom_sheet_container.*
-import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.*
 
 class PictureOfTheDayFragment : Fragment() {
     private var _binding: MainFragmentStartBinding? = null
     private val binding get() = _binding!!
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
+    private var isExpanded = false
 
     //Ленивая инициализация модели
     private val viewModel: PictureOfTheDayViewModel by lazy {
@@ -56,6 +56,8 @@ class PictureOfTheDayFragment : Fragment() {
             }
 
             chipGroupPreviousDays.setOnCheckedChangeListener { chipGroup, checkedId ->
+                isExpanded = false
+                changeImageExpand()
                 chipGroup.findViewById<Chip>(checkedId)?.let {
                     when (checkedId) {
                         yesterdayChip.id -> viewModel.getData(-1)
@@ -66,8 +68,27 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
             }
-        }
 
+            imageView.setOnClickListener{
+                isExpanded = !isExpanded
+                changeImageExpand()
+            }
+        }
+    }
+
+    private fun changeImageExpand() {
+        with(binding) {
+            TransitionManager.beginDelayedTransition(
+                main, TransitionSet()
+                    .addTransition(ChangeBounds())
+                    .addTransition(ChangeImageTransform())
+            )
+
+            val params: ViewGroup.LayoutParams = imageView.layoutParams
+            params.height = if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
+            imageView.layoutParams = params
+            imageView.scaleType = if (isExpanded) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -150,7 +171,7 @@ class PictureOfTheDayFragment : Fragment() {
     private fun showError(error: String) {
         binding.main.showSnackBar(
             error,
-            getString(R.string.reload),
+            getString(R.string.close),
             { View.OnClickListener { } }
         )
     }
