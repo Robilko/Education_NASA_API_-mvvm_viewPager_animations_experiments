@@ -25,7 +25,11 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
         navigation_view.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.navigation_one -> Toast.makeText(context, resources.getString(R.string.don_t_released_yet), Toast.LENGTH_SHORT).show()
+                R.id.navigation_one -> {
+                    activity?.let {
+                        startActivity(Intent(it, AnimationsActivity::class.java))
+                    }
+                }
             }
             true
         }

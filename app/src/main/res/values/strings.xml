@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">PhotoEveryDay</string>
+    <string name="app_name">NASA photo every day</string>
     <string name="error_message_empty_url">Link is empty</string>
-    <string name="reload">Reload</string>
+    <string name="close">Reload</string>
     <string name="photo_of_the_day_stub">Photo of the day</string>
     <string name="search_wiki">Search on Wikipedia</string>
     <string name="wiki_helper_text">Enter text to search</string>
@@ -24,4 +24,5 @@
     <string name="two_days_ago">Two days ago</string>
     <string name="yesterday">Yesterday</string>
     <string name="today">Today</string>
+    <string name="animation_experiments">Animation experiments</string>
 </resources>

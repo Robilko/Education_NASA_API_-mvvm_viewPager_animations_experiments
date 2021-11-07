@@ -4,7 +4,7 @@
         <item
             android:id="@+id/navigation_one"
             android:icon="@drawable/ic_load_error_vector"
-            android:title="@string/don_t_released_yet" />
+            android:title="@string/animation_experiments" />
     </group>
 
 </menu>
