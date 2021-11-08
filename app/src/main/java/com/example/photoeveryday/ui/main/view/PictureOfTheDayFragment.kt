@@ -1,11 +1,13 @@
 package com.example.photoeveryday.ui.main.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.MediaController
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -159,14 +161,40 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     private fun showSuccess(data: PODServerResponseData) {
-        binding.imageView.load(data.url) {
-            lifecycle(this@PictureOfTheDayFragment)
-            error(R.drawable.ic_load_error_vector)
-            placeholder(R.drawable.ic_no_photo_vector)
+        if (data.mediaType.equals("video")) {
+            showVideo(data)
+        } else {
+            showImage(data)
         }
+
         view?.findViewById<TextView>(R.id.bottom_sheet_description_header)?.text = data.title
         view?.findViewById<TextView>(R.id.bottom_sheet_description)?.text = data.explanation
     }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private fun showVideo(data: PODServerResponseData) {
+        with(binding) {
+            imageView.visibility = View.GONE
+            videoView.apply {
+                visibility = android.view.View.VISIBLE
+                videoView.settings.javaScriptEnabled = true
+                videoView.loadUrl(Uri.parse(data.url).toString())
+            }
+        }
+    }
+
+    private fun showImage(data: PODServerResponseData) {
+        with(binding) {
+            videoView.visibility = View.GONE
+            imageView.visibility = View.VISIBLE
+            imageView.load(data.url) {
+                lifecycle(this@PictureOfTheDayFragment)
+                error(R.drawable.ic_load_error_vector)
+                placeholder(R.drawable.ic_no_photo_vector)
+            }
+        }
+    }
+
 
     private fun showError(error: String) {
         binding.main.showSnackBar(
