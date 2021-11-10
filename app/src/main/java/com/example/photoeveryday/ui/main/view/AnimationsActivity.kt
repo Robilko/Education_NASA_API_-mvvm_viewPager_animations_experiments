@@ -1,38 +1,43 @@
 package com.example.photoeveryday.ui.main.view
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import androidx.transition.ChangeBounds
-import androidx.transition.ChangeImageTransform
 import androidx.transition.TransitionManager
-import androidx.transition.TransitionSet
 import com.example.photoeveryday.R
-import kotlinx.android.synthetic.main.activity_animations_enlarge.*
+import kotlinx.android.synthetic.main.activity_animations_shuffle.*
 
 class AnimationsActivity : AppCompatActivity() {
 
-    private var isExpanded = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_animations_enlarge)
-        image_view.setOnClickListener {
-            isExpanded = !isExpanded
-            TransitionManager.beginDelayedTransition(
-                container, TransitionSet()
-                    .addTransition(ChangeBounds())
-                    .addTransition(ChangeImageTransform())
-            )
+        setContentView(R.layout.activity_animations_shuffle)
 
+        val titles: MutableList<String> = ArrayList()
+        for (i in 0..4) {
+            titles.add(String.format("Item %d", i + 1))
+        }
+        createViews(transitions_container, titles)
+        button.setOnClickListener{
+            TransitionManager.beginDelayedTransition(transitions_container, ChangeBounds())
+            titles.shuffle()
+            createViews(transitions_container, titles)
+        }
 
-            val params: ViewGroup.LayoutParams = image_view.layoutParams
-            params.height =
-                if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
-            image_view.layoutParams = params
-            image_view.scaleType =
-                if (isExpanded) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+    }
+
+    private fun createViews(layout: ViewGroup, titles: List<String>) {
+        layout.removeAllViews()
+        for (title in titles) {
+            val textView = TextView(this)
+            textView.text = title
+            textView.gravity = Gravity.CENTER_HORIZONTAL
+            ViewCompat.setTransitionName(textView, title)
+            layout.addView(textView)
         }
     }
 }
