@@ -1,121 +1,54 @@
 package com.example.photoeveryday.ui.main.view
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.widget.Toast
+import android.transition.ChangeBounds
+import android.transition.TransitionManager
+import android.view.animation.AnticipateOvershootInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
 import com.example.photoeveryday.R
-import kotlinx.android.synthetic.main.activity_animations_fab.*
+import kotlinx.android.synthetic.main.activity_animations_bonus_start.*
 
 class AnimationsActivity : AppCompatActivity() {
-    private var isExpanded = false
+    private var show = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_animations_fab)
-        setFAB()
-        scroll_view.setOnScrollChangeListener { _, _, _, _, _ ->
-            toolbar.isSelected = scroll_view.canScrollVertically(-1)
+        setContentView(R.layout.activity_animations_bonus_start)
+
+        backgroundImage.setOnClickListener {
+            if (show) hideComponents() else showComponents()
         }
-    }
-
-    private fun setFAB() {
-        setInitialState()
-
-        fab.setOnClickListener {
-            if (isExpanded) {
-                collapseFAB()
-            } else {
-                expandFAB()
-            }
-        }
-    }
-
-    private fun collapseFAB() {
-        isExpanded = false
-        ObjectAnimator.ofFloat(plus_imageview, "rotation", 0f, -180f).start()
-        ObjectAnimator.ofFloat(option_two_container, "translationY", 0f).start()
-        ObjectAnimator.ofFloat(option_one_container, "translationY", 0f).start()
-
-        option_two_container.animate().alpha(0f).setDuration(300)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    option_two_container.isClickable = false
-                    option_one_container.setOnClickListener(null)
-                }
-            })
-        option_one_container.animate().alpha(0f).setDuration(300)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    option_one_container.isClickable = false
-                }
-            })
-        transparent_background.animate().alpha(0f).setDuration(300)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    transparent_background.isClickable = false
-                }
-            })
-    }
-
-    private fun expandFAB() {
-        isExpanded = true
-        ObjectAnimator.ofFloat(plus_imageview, "rotation", 0f, 225f).start()
-        ObjectAnimator.ofFloat(option_two_container, "translationY", -130f).start()
-        ObjectAnimator.ofFloat(option_one_container, "translationY", -250f).start()
-
-        option_two_container.animate()
-            .alpha(1f)
-            .setDuration(300)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    option_two_container.isClickable = true
-                    option_two_container.setOnClickListener {
-                        Toast.makeText(this@AnimationsActivity, "Option 2", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }
-            })
-
-        option_one_container.animate()
-            .alpha(1f)
-            .setDuration(300)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    option_one_container.isClickable = true
-                    option_one_container.setOnClickListener {
-                        Toast.makeText(this@AnimationsActivity, "Option 1", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }
-            })
-
-        transparent_background.animate()
-            .alpha(0.9f)
-            .setDuration(300)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    transparent_background.isClickable = true
-                }
-            })
 
     }
 
-    private fun setInitialState() {
-        transparent_background.apply {
-            alpha = 0f
-        }
-        option_two_container.apply {
-            alpha = 0f
-            isClickable = false
-        }
+    private fun showComponents() {
+        show = true
 
-        option_one_container.apply {
-            alpha = 0f
-            isClickable = false
-        }
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(this, R.layout.activity_animations_bonus_end)
+
+        val transition = ChangeBounds()
+        transition.interpolator = AnticipateOvershootInterpolator(1.0f)
+        transition.duration = 1200
+
+        TransitionManager.beginDelayedTransition(constraint_container, transition)
+        constraintSet.applyTo(constraint_container)
+    }
+
+    private fun hideComponents() {
+        show = false
+
+        val constrainSet = ConstraintSet()
+        constrainSet.clone(this, R.layout.activity_animations_bonus_start)
+
+        val transition = ChangeBounds()
+        transition.interpolator = AnticipateOvershootInterpolator(1.0f)
+        transition.duration = 1200
+
+        TransitionManager.beginDelayedTransition(constraint_container, transition)
+        constrainSet.applyTo(constraint_container)
     }
 }
+
 
