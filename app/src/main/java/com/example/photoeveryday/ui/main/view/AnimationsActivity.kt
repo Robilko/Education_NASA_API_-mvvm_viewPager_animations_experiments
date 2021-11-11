@@ -16,6 +16,9 @@ class AnimationsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animations_fab)
         setFAB()
+        scroll_view.setOnScrollChangeListener { _, _, _, _, _ ->
+            toolbar.isSelected = scroll_view.canScrollVertically(-1)
+        }
     }
 
     private fun setFAB() {
