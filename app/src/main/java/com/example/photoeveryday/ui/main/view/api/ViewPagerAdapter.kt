@@ -3,6 +3,8 @@ package com.example.photoeveryday.ui.main.view.api
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.example.photoeveryday.ui.main.view.api.EarthFragment
+import com.example.photoeveryday.ui.main.view.api.MarsFragment
 
 private const val EARTH_FRAGMENT = 0
 private const val MARS_FRAGMENT = 1
