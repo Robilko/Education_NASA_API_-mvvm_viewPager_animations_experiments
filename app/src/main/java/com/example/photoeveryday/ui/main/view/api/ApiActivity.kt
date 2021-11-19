@@ -1,4 +1,4 @@
-package com.example.photoeveryday.ui.main.view
+package com.example.photoeveryday.ui.main.view.api
 
 import android.content.Context
 import android.os.Bundle

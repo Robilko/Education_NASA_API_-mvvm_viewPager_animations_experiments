@@ -1,12 +1,13 @@
-package com.example.photoeveryday.ui.main.view
+package com.example.photoeveryday.ui.main.view.picture
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.photoeveryday.R
+import com.example.photoeveryday.ui.main.view.recycler.RecyclerActivity
+import com.example.photoeveryday.ui.main.view.animations.AnimationsActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottom_navigation_layout.*
 
@@ -28,6 +29,12 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 R.id.navigation_one -> {
                     activity?.let {
                         startActivity(Intent(it, AnimationsActivity::class.java))
+                    }
+                }
+
+                R.id.navigation_two -> {
+                    activity?.let {
+                        startActivity(Intent(it, RecyclerActivity::class.java))
                     }
                 }
             }
