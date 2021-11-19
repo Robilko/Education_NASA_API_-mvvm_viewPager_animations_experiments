@@ -1,4 +1,4 @@
-package com.example.photoeveryday.ui.main.view
+package com.example.photoeveryday.ui.main.view.api
 
 import android.content.Context
 import android.os.Bundle
@@ -10,6 +10,7 @@ import com.example.photoeveryday.ui.main.utils.KEY_RED_ROSE_THEME
 import com.example.photoeveryday.ui.main.utils.KEY_DEFAULT_THEME
 import com.example.photoeveryday.ui.main.utils.SETTINGS_PREFERENCES
 import com.example.photoeveryday.ui.main.utils.THEME_PREFERENCES
+import com.example.photoeveryday.ui.main.view.api.ViewPagerAdapter
 import kotlinx.android.synthetic.main.api_activity.*
 
 class ApiActivity : AppCompatActivity() {

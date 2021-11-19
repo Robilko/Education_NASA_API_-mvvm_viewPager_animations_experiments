@@ -1,4 +1,4 @@
-package com.example.photoeveryday.ui.main.view
+package com.example.photoeveryday.ui.main.view.picture
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.MediaController
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -16,8 +15,11 @@ import coil.api.load
 import com.example.photoeveryday.R
 import com.example.photoeveryday.databinding.MainFragmentStartBinding
 import com.example.photoeveryday.ui.main.repository.PODServerResponseData
-import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
+import com.example.photoeveryday.ui.main.viewmodel.PictureOfTheDayData
 import com.example.photoeveryday.ui.main.utils.*
+import com.example.photoeveryday.ui.main.view.MainActivity
+import com.example.photoeveryday.ui.main.view.api.ApiActivity
+import com.example.photoeveryday.ui.main.view.settings.SettingsFragment
 import com.example.photoeveryday.ui.main.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip

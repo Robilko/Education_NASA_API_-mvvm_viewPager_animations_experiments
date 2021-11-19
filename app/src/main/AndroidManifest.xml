@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/DefaultTheme">
         <activity
-            android:name=".ui.main.view.AnimationsActivity"
+            android:name=".ui.main.view.animations.AnimationsActivity"
             android:exported="true" />
         <activity
             android:name=".ui.main.view.MainActivity"
@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.view.ApiActivity" />
+        <activity android:name=".ui.main.view.api.ApiActivity" />
+        <activity android:name=".ui.main.view.recycler.RecyclerActivity" />
     </application>
 
 </manifest>

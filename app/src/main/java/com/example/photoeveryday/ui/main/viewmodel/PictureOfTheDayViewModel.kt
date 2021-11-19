@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.example.photoeveryday.BuildConfig
 import com.example.photoeveryday.ui.main.repository.PODRetrofitImpl
 import com.example.photoeveryday.ui.main.repository.PODServerResponseData
-import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
