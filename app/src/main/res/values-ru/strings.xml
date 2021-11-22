@@ -23,4 +23,7 @@
     <string name="today">Сегодня</string>
     <string name="animation_experiments">Эксперименты с анимацмей</string>
     <string name="recycler_activity">Recycler activity</string>
+    <string name="note_item_head">Заметка</string>
+    <string name="note_text_body">Напишите текст заметки здесь…</string>
+    <string name="save_btn_name">Сохранить</string>
 </resources>
