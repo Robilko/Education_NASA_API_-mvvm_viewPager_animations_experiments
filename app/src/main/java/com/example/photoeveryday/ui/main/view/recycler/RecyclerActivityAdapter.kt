@@ -125,7 +125,7 @@ class RecyclerActivityAdapter(
             oldItems[oldItemPosition].first.id == newItems[newItemPosition].first.id
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-            oldItems[oldItemPosition].first.someText == newItems[newItemPosition].first.someText
+            oldItems[oldItemPosition].first.someText == newItems[newItemPosition].first.someText && oldItems[oldItemPosition].first.someDescription == newItems[newItemPosition].first.someDescription
 
         override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any {
             val oldItem = oldItems[oldItemPosition]
