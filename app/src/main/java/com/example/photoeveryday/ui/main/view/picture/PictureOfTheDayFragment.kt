@@ -176,13 +176,17 @@ class PictureOfTheDayFragment : Fragment() {
             showImage(data)
         }
 
-        val spannable = SpannableString(data.title)
+        view?.findViewById<TextView>(R.id.bottom_sheet_description_header)?.text = makeSpansOnHeader(data.title)
+        view?.findViewById<TextView>(R.id.bottom_sheet_description)?.text = data.explanation
+    }
+
+    private fun makeSpansOnHeader(title: String?): SpannableString {
+        val spannable = SpannableString(title)
         spannable.setSpan(ForegroundColorSpan(Color.GREEN), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(ForegroundColorSpan(Color.YELLOW), 1, spannable.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(StyleSpan(Typeface.BOLD_ITALIC), 0, spannable.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(AbsoluteSizeSpan(60), 0, spannable.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        view?.findViewById<TextView>(R.id.bottom_sheet_description_header)?.text = spannable
-        view?.findViewById<TextView>(R.id.bottom_sheet_description)?.text = data.explanation
+        return spannable
     }
 
     @SuppressLint("SetJavaScriptEnabled")
