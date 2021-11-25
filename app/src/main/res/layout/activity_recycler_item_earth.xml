@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/app_background">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/earthImageView"
@@ -17,7 +18,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Земля"
+        android:text="@string/earth"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
@@ -31,14 +32,15 @@
         android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_wikipedia" />
+        app:srcCompat="@drawable/ic_wikipedia"
+        app:tint="@color/app_text_color"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/descriptionTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Дополнительный текст"
-        android:textColor="#000"
+        tools:text="Дополнительный текст"
+        android:textColor="@color/app_text_color"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
         app:layout_constraintEnd_toStartOf="@+id/barrier"
@@ -55,7 +57,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000"
+        android:background="@color/app_text_color"
         app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

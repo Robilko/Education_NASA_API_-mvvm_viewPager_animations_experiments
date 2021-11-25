@@ -5,7 +5,7 @@
     android:id="@+id/itemContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@color/app_background">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/note_header"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/note_description_padding"
         android:text="@string/mars_description"
-        android:textColor="#000"
+        android:textColor="@color/app_text_color"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/edit_note_default_margin"
-        android:tint="@color/design_default_color_error"
+        android:tint="@color/recycle_item_red"
         app:layout_constraintBottom_toBottomOf="@+id/note_header"
         app:layout_constraintEnd_toStartOf="@+id/moveItemDown"
         app:layout_constraintTop_toTopOf="@+id/note_header"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/edit_note_default_margin"
-        android:tint="@color/design_default_color_error"
+        android:tint="@color/recycle_item_red"
         app:layout_constraintBottom_toBottomOf="@+id/note_header"
         app:layout_constraintEnd_toStartOf="@+id/addItemImageView"
         app:layout_constraintTop_toTopOf="@+id/note_header"
@@ -89,7 +89,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000"
+        android:background="@color/app_text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/note_description" />
 
