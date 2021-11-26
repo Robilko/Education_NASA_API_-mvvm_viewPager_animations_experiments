@@ -1,6 +1,5 @@
 package com.example.photoeveryday.ui.main.view.recycler
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
