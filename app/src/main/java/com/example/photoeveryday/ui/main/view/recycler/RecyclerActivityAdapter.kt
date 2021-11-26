@@ -300,7 +300,7 @@ class RecyclerActivityAdapter(
 
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
         data.removeAt(fromPosition).apply {
-            data.add(if (toPosition > fromPosition) toPosition - 1 else toPosition, this)
+            data.add(toPosition, this)
         }
         notifyItemMoved(fromPosition, toPosition)
     }
