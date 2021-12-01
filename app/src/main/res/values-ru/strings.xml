@@ -18,4 +18,7 @@
     <string name="mars">Марс</string>
     <string name="weather">Погода</string>
     <string name="don_t_released_yet">Еще не реализовано</string>
+    <string name="two_days_ago">Позавчера</string>
+    <string name="yesterday">Вчера</string>
+    <string name="today">Сегодня</string>
 </resources>
