@@ -11,4 +11,10 @@
     <color name="bottom_sheet_header_background">#FF6200EE</color>
     <color name="bottom_sheet_line_background">#663b4351</color>
     <color name="bottom_sheet_text_color">#000</color>
+
+    <color name="Cosmic_theme_color_primary">#E53935</color>
+    <color name="Cosmic_theme_color_primary_variant">#D81B60</color>
+    <color name="Cosmic_theme_color_on_primary">#8BC34A</color>
+    <color name="Cosmic_theme_color_secondary">#00ACC1</color>
+    <color name="Cosmic_theme_color_secondary_variant">#006064</color>
 </resources>

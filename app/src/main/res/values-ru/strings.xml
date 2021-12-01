@@ -10,4 +10,6 @@
     <string name="search">Поиск</string>
     <string name="header_text_theme_selection">Выбор темы приложения:</string>
     <string name="header_text_font_selection">Выбор шрифта:</string>
+    <string name="default_theme_name">По умолчанию</string>
+    <string name="cosmic_theme_name">Космическая</string>
 </resources>
