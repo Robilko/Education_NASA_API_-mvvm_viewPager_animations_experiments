@@ -5,6 +5,11 @@
             android:id="@+id/navigation_one"
             android:icon="@drawable/ic_load_error_vector"
             android:title="@string/animation_experiments" />
+
+        <item
+            android:id="@+id/navigation_two"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="@string/recycler_activity" />
     </group>
 
 </menu>

@@ -1,4 +1,4 @@
-package com.example.photoeveryday.ui.main.view
+package com.example.photoeveryday.ui.main.view.animations
 
 import android.os.Bundle
 import android.transition.ChangeBounds

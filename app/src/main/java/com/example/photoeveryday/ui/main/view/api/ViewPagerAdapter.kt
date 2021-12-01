@@ -1,4 +1,4 @@
-package com.example.photoeveryday.ui.main.view
+package com.example.photoeveryday.ui.main.view.api
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

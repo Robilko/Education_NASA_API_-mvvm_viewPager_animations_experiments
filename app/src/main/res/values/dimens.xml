@@ -6,4 +6,7 @@
     <dimen name="default_textSize">20sp</dimen>
     <dimen name="swipe_indication_group_margin">20dp</dimen>
     <dimen name="settings_header_height">40dp</dimen>
+    <dimen name="body_text_size">20sp</dimen>
+    <dimen name="heading_text_size">28sp</dimen>
+    <dimen name="button_height">56dp</dimen>
 </resources>

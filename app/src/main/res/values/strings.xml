@@ -25,4 +25,8 @@
     <string name="yesterday">Yesterday</string>
     <string name="today">Today</string>
     <string name="animation_experiments">Animation experiments</string>
+    <string name="recycler_activity">Recycler activity</string>
+    <string name="note_item_head">Note</string>
+    <string name="note_text_body">Write text of note here…</string>
+    <string name="save_btn_name">Save</string>
 </resources>

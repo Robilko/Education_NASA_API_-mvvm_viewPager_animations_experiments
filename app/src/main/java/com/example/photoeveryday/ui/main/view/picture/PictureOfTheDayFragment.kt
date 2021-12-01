@@ -1,4 +1,4 @@
-package com.example.photoeveryday.ui.main.view
+package com.example.photoeveryday.ui.main.view.picture
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.MediaController
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -16,8 +15,11 @@ import coil.api.load
 import com.example.photoeveryday.R
 import com.example.photoeveryday.databinding.MainFragmentStartBinding
 import com.example.photoeveryday.ui.main.repository.PODServerResponseData
-import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
+import com.example.photoeveryday.ui.main.viewmodel.PictureOfTheDayData
 import com.example.photoeveryday.ui.main.utils.*
+import com.example.photoeveryday.ui.main.view.MainActivity
+import com.example.photoeveryday.ui.main.view.api.ApiActivity
+import com.example.photoeveryday.ui.main.view.settings.SettingsFragment
 import com.example.photoeveryday.ui.main.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
@@ -106,10 +108,8 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
             R.id.app_bar_settings -> {
-                activity?.let {
-                    it.supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, SettingsFragment()).addToBackStack(null).commit()
-                }
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
             }
             android.R.id.home -> {
                 activity?.let {
@@ -176,7 +176,7 @@ class PictureOfTheDayFragment : Fragment() {
         with(binding) {
             imageView.visibility = View.GONE
             videoView.apply {
-                visibility = android.view.View.VISIBLE
+                visibility = View.VISIBLE
                 videoView.settings.javaScriptEnabled = true
                 videoView.loadUrl(Uri.parse(data.url).toString())
             }
