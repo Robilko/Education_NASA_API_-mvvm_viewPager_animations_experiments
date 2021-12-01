@@ -14,13 +14,14 @@
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chip_group_theme_selection"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_default"
         app:chipSpacingHorizontal="25dp"
         app:selectionRequired="true"
         app:singleLine="true"
-        app:singleSelection="true">
+        app:singleSelection="true"
+        android:layout_gravity="center">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/default_theme"
@@ -36,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/cosmic_theme_name" />
+            android:text="@string/red_rose_theme_name" />
     </com.google.android.material.chip.ChipGroup>
 
     <TextView
@@ -46,13 +47,14 @@
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chip_group_font_selection"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_default"
         app:chipSpacingHorizontal="25dp"
         app:selectionRequired="true"
         app:singleLine="true"
-        app:singleSelection="true">
+        app:singleSelection="true"
+        android:layout_gravity="center">
 
         <com.google.android.material.chip.Chip
             style="@style/Widget.MaterialComponents.Chip.Choice"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="bottomSheetColor" format="reference"/>
+    <attr name="bottomAppBarColor" format="reference"/>
     <attr name="settingsHeaderBackground" format="reference"/>
 </resources>

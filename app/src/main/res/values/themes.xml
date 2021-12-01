@@ -1,46 +1,62 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PhotoEveryDay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="DefaultTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/Default_theme_color_primary</item>
+        <item name="colorPrimaryVariant">@color/Default_theme_color_primary_variant</item>
+        <item name="colorOnPrimary">@color/Default_theme_color_on_primary</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/Default_theme_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/Default_theme_color_secondary_variant</item>
+        <item name="colorOnSecondary">@color/Default_theme_color_on_secondary</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/Default_theme_color_primary_variant</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/amita</item>
-        <item name="bottomSheetColor">@color/design_default_color_primary_variant</item>
-        <item name="settingsHeaderBackground">@color/design_default_color_primary</item>
-
+        <item name="bottomSheetColor">@color/Default_theme_color_primary_variant</item>
+        <item name="bottomAppBarColor">@color/Default_theme_color_primary</item>
+        <item name="settingsHeaderBackground">@color/Default_theme_color_primary</item>
 
     </style>
 
-    <style name="CosmicTheme" parent="Theme.PhotoEveryDay">
-        <item name="colorPrimary">@color/Cosmic_theme_color_primary</item>
-        <item name="colorPrimaryVariant">@color/Cosmic_theme_color_primary_variant</item>
-        <item name="colorOnPrimary">@color/Cosmic_theme_color_on_primary</item>
-        <item name="colorSecondary">@color/Cosmic_theme_color_secondary</item>
-        <item name="colorSecondaryVariant">@color/Cosmic_theme_color_secondary_variant</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/Cosmic_theme_color_primary_variant</item>
-        <item name="bottomSheetColor">@color/Cosmic_theme_color_primary_variant</item>
-        <item name="settingsHeaderBackground">@color/Cosmic_theme_color_primary</item>
+    <style name="RedRoseTheme" parent="DefaultTheme">
+        <item name="colorPrimary">@color/Red_Rose_theme_color_primary</item>
+        <item name="colorPrimaryVariant">@color/Red_Rose_theme_color_primary_variant</item>
+        <item name="colorOnPrimary">@color/Red_Rose_theme_color_on_primary</item>
+        <item name="colorSecondary">@color/Red_Rose_theme_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/Red_Rose_theme_color_secondary_variant</item>
+        <item name="colorOnSecondary">@color/Red_Rose_theme_color_on_secondary</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/Red_Rose_theme_color_primary_variant</item>
+        <item name="bottomSheetColor">@color/Red_Rose_theme_color_primary_variant</item>
+        <item name="bottomAppBarColor">@color/Red_Rose_theme_color_primary</item>
+        <item name="settingsHeaderBackground">@color/Red_Rose_theme_color_primary</item>
         <item name="android:fontFamily">@font/baumans</item>
-        <item name="android:textSize">@dimen/default_textSize</item>
     </style>
 
 
     <style name="SettingsHeaders">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">@dimen/settings_header_height</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingTop">@dimen/padding_default</item>
         <item name="android:paddingBottom">@dimen/padding_default</item>
         <item name="android:background">?attr/settingsHeaderBackground</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SwipeIndication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">7dp</item>
+    </style>
+
+    <style name="CustomTabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="drawableTint">@color/tab_text_icon_color</item>
+        <item name="android:textColor">@color/tab_text_icon_color</item>
+        <item name="android:textSize">15sp</item>
     </style>
 </resources>

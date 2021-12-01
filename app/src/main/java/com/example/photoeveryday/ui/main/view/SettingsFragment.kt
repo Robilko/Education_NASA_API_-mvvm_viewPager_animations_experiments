@@ -23,26 +23,14 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
-    private fun loadSettings() {
-        with(binding) {
-            val checkedId =
-                requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE).getInt(
-                    CHIP_THEME_SELECTED, defaultTheme.id
-                )
-            chipGroupThemeSelection.findViewById<Chip>(checkedId).isChecked = true
-        }
-    }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadSettings()
         with(binding) {
-            chipGroupThemeSelection.setOnCheckedChangeListener { chipGroup, checkedId ->
-                when (chipGroup.findViewById<Chip>(checkedId)) {
-                    defaultTheme -> saveThemeMode(KEY_DEFAULT_THEME, checkedId)
-                    cosmicTheme -> saveThemeMode(KEY_COSMIC_THEME, checkedId)
-
+            chipGroupThemeSelection.setOnCheckedChangeListener { _, checkedId ->
+                when (checkedId) {
+                    defaultTheme.id -> saveThemeMode(KEY_DEFAULT_THEME)
+                    cosmicTheme.id -> saveThemeMode(KEY_RED_ROSE_THEME)
                 }
             }
             chipGroupFontSelection.setOnCheckedChangeListener { chipGroup, checkedId ->
@@ -53,11 +41,24 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    private fun saveThemeMode(theme: String, checkedId: Int) {
+    private fun loadSettings() {
+        with(binding) {
+            val theme =
+                requireActivity().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
+                    .getString(THEME_PREFERENCES, KEY_DEFAULT_THEME)
+
+            if (theme.equals(KEY_RED_ROSE_THEME)) {
+                cosmicTheme.isChecked = true
+            } else {
+                defaultTheme.isChecked = true
+            }
+        }
+    }
+
+    private fun saveThemeMode(theme: String) {
         requireContext().getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
             .edit()
             .putString(THEME_PREFERENCES, theme)
-            .putInt(CHIP_THEME_SELECTED, checkedId)
             .apply()
         requireActivity().recreate()
     }

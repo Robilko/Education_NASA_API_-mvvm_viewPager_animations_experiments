@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.photoeveryday.R
 import com.example.photoeveryday.ui.main.utils.*
-import com.example.photoeveryday.ui.main.view.main.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, PictureOfTheDayFragment())
+                .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commitNow()
         }
     }
@@ -24,10 +23,10 @@ class MainActivity : AppCompatActivity() {
     private fun setTheme() {
         val theme = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE).getString(THEME_PREFERENCES, KEY_DEFAULT_THEME)
 
-        if (theme.equals(KEY_COSMIC_THEME)) {
-            setTheme(R.style.CosmicTheme)
+        if (theme.equals(KEY_RED_ROSE_THEME)) {
+            setTheme(R.style.RedRoseTheme)
         } else {
-            setTheme(R.style.Theme_PhotoEveryDay)
+            setTheme(R.style.DefaultTheme)
         }
     }
 }

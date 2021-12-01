@@ -11,8 +11,14 @@
     <string name="header_text_theme_selection">Selection app theme:</string>
     <string name="header_text_font_selection">Font selection:</string>
     <string name="default_theme_name">Default</string>
-    <string name="cosmic_theme_name">Cosmic</string>
+    <string name="red_rose_theme_name">Red \'n\' Rose</string>
     <string name="font_1" translatable="false">amatic_sc</string>
     <string name="font_2" translatable="false">amita</string>
     <string name="font_3" translatable="false">baumans</string>
+    <string name="nav_title_photo_of_the_day">Today photo</string>
+    <string name="nav_title_planets_photo">Planets photo</string>
+    <string name="earth">Earth</string>
+    <string name="mars">Mars</string>
+    <string name="weather">Weather</string>
+    <string name="don_t_released_yet">don\'t released yet</string>
 </resources>

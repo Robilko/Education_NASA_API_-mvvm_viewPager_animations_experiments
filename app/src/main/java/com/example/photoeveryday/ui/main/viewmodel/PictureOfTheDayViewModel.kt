@@ -10,23 +10,31 @@ import com.example.photoeveryday.ui.main.repository.PictureOfTheDayData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class PictureOfTheDayViewModel(
     private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> = MutableLiveData(),
     private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()
 ) : ViewModel() {
-    fun getData() : LiveData<PictureOfTheDayData> {
-        sendServerRequest()
+
+    fun getData(amountOfMinusDays: Int) : LiveData<PictureOfTheDayData> {
+        sendServerRequest(getStringDateForRequest(amountOfMinusDays))
         return liveDataForViewToObserve
     }
 
-    private fun sendServerRequest() {
+    private fun getStringDateForRequest(amountOfMinusDays: Int): String {
+        val date = Calendar.getInstance()
+        date.add(Calendar.DATE, amountOfMinusDays)
+        return "${date.get(Calendar.YEAR)}-${date.get(Calendar.MONTH) + 1}-${date.get(Calendar.DAY_OF_MONTH)}"
+    }
+
+    private fun sendServerRequest(date: String) {
         liveDataForViewToObserve.value = PictureOfTheDayData.Loading(null)
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
             PictureOfTheDayData.Error(Throwable("You need API key"))
         } else {
-            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey).enqueue(object : Callback<PODServerResponseData> {
+            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(date, apiKey).enqueue(object : Callback<PODServerResponseData> {
                 override fun onResponse(
                     call: Call<PODServerResponseData>,
                     response: Response<PODServerResponseData>
