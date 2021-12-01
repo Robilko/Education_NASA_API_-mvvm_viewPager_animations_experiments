@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bottom_sheet_background">#f6f6fa</color>
+    <color name="bottom_sheet_header_background">#FF6200EE</color>
+    <color name="bottom_sheet_line_background">#663b4351</color>
+    <color name="bottom_sheet_text_color">#000</color>
 </resources>

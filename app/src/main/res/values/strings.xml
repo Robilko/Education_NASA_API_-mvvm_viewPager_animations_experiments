@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PhotoEveryDay</string>
+    <string name="error_message_empty_url">Link is empty</string>
+    <string name="reload">Reload</string>
+    <string name="photo_of_the_day_stub">Photo of the day</string>
+    <string name="search_wiki">Search on Wikipedia</string>
+    <string name="wiki_helper_text">Enter text to search</string>
+    <string name="favourite">Favorite</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+    <string name="header_text_theme_selection">Selection app theme:</string>
+    <string name="header_text_font_selection">Font selection:</string>
 </resources>
