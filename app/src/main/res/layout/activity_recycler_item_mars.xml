@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itemContainer"
-    android:background="@android:color/white"
+    android:background="@color/app_background"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -19,7 +19,7 @@
         android:id="@+id/marsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Марс"
+        android:text="@string/mars"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/marsImageView"
@@ -31,8 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Марс — четвёртая по удалённости от Солнца и седьмая по размерам планета Солнечной системы. Названа в честь Марса — древнеримского бога войны, соответствующего древнегреческому Аресу. Иногда Марс называют «красной планетой» из-за красноватого оттенка поверхности, придаваемого ей минералом маггемитом (оксидом железа)."
-        android:textColor="#000"
+        android:text="@string/mars_description"
+        android:textColor="@color/app_text_color"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:tint="@color/design_default_color_error"
+        android:tint="@color/recycle_item_red"
         app:layout_constraintBottom_toBottomOf="@+id/marsTextView"
         app:layout_constraintEnd_toStartOf="@+id/addItemImageView"
         app:layout_constraintStart_toEndOf="@+id/marsTextView"
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:tint="@color/design_default_color_error"
+        android:tint="@color/recycle_item_red"
         app:layout_constraintBottom_toBottomOf="@+id/marsTextView"
         app:layout_constraintEnd_toStartOf="@+id/addItemImageView"
         app:layout_constraintStart_toEndOf="@+id/moveItemUp"
@@ -98,7 +98,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000"
+        android:background="@color/app_text_color"
         app:layout_constraintBottom_toBottomOf="@+id/marsDescriptionTextView"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

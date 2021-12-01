@@ -9,4 +9,8 @@
     <dimen name="body_text_size">20sp</dimen>
     <dimen name="heading_text_size">28sp</dimen>
     <dimen name="button_height">56dp</dimen>
+    <dimen name="note_header_text_size">28sp</dimen>
+    <dimen name="note_header_view_height">70dp</dimen>
+    <dimen name="note_description_padding">10dp</dimen>
+    <dimen name="edit_note_default_margin">10dp</dimen>
 </resources>

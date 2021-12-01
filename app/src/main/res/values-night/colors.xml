@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bottom_sheet_background">#292525</color>
-    <color name="bottom_sheet_text_color">#f6f6fa</color>
+    <color name="app_background">#292525</color>
+    <color name="app_text_color">#f6f6fa</color>
     <color name="bottom_sheet_header_background">#FFBB86FC</color>
     <color name="tab_text_icon_color">#f6f6fa</color>
     <color name="swipe_indicator_active">#f6f6fa</color>
     <color name="swipe_indicator_passive">#66f6f6fa</color>
+    <color name="colorAccent">#7D9DF3</color>
+    <color name="recycle_item_red">#F18684</color>
+    <color name="recycler_background">#3F3D3D</color>
+    <color name="recycler_item_selected_background">#5E5B5B</color>
 
     <!--    Default theme colors-->
     <!-- Primary brand color. -->

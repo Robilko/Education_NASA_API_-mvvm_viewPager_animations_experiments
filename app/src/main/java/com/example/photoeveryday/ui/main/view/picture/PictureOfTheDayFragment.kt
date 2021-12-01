@@ -2,8 +2,17 @@ package com.example.photoeveryday.ui.main.view.picture
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
+import android.graphics.fonts.FontFamily
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.AbsoluteSizeSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
+import android.text.style.TypefaceSpan
 import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -167,8 +176,17 @@ class PictureOfTheDayFragment : Fragment() {
             showImage(data)
         }
 
-        view?.findViewById<TextView>(R.id.bottom_sheet_description_header)?.text = data.title
+        view?.findViewById<TextView>(R.id.bottom_sheet_description_header)?.text = makeSpansOnHeader(data.title)
         view?.findViewById<TextView>(R.id.bottom_sheet_description)?.text = data.explanation
+    }
+
+    private fun makeSpansOnHeader(title: String?): SpannableString {
+        val spannable = SpannableString(title)
+        spannable.setSpan(ForegroundColorSpan(Color.GREEN), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(ForegroundColorSpan(Color.YELLOW), 1, spannable.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(StyleSpan(Typeface.BOLD_ITALIC), 0, spannable.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(AbsoluteSizeSpan(60), 0, spannable.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        return spannable
     }
 
     @SuppressLint("SetJavaScriptEnabled")

@@ -144,11 +144,11 @@ class RecyclerActivityAdapter(
         }
 
         override fun onItemSelected() {
-            itemView.setBackgroundColor(Color.LTGRAY)
+            itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.recycler_item_selected_background))
         }
 
         override fun onItemClear() {
-            itemView.setBackgroundColor(Color.WHITE)
+            itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.app_background))
         }
     }
 
@@ -208,11 +208,11 @@ class RecyclerActivityAdapter(
         }
 
         override fun onItemSelected() {
-            itemView.setBackgroundColor(Color.LTGRAY)
+            itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.recycler_item_selected_background))
         }
 
         override fun onItemClear() {
-            itemView.setBackgroundColor(Color.WHITE)
+            itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.app_background))
         }
     }
 
@@ -273,11 +273,11 @@ class RecyclerActivityAdapter(
         }
 
         override fun onItemSelected() {
-            itemView.setBackgroundColor(Color.LTGRAY)
+            itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.recycler_item_selected_background))
         }
 
         override fun onItemClear() {
-            itemView.setBackgroundColor(Color.WHITE)
+            itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.app_background))
         }
     }
 

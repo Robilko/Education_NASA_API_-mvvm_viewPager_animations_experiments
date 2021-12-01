@@ -29,4 +29,7 @@
     <string name="note_item_head">Note</string>
     <string name="note_text_body">Write text of note here…</string>
     <string name="save_btn_name">Save</string>
+    <string name="mars_description">Mars is the fourth farthest from the Sun and the seventh largest planet in the solar system. Named after Mars - the ancient Roman god of war, corresponding to the ancient Greek Ares. Sometimes Mars is called the "red planet" because of the reddish tint of the surface, given to it by the mineral maghemite (iron oxide).</string>
+    <string name="recycler_item_header">Header</string>
+
 </resources>
