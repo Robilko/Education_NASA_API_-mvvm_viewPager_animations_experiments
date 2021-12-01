@@ -1,6 +1,5 @@
 package com.example.photoeveryday.ui.main.view.recycler
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -300,7 +299,7 @@ class RecyclerActivityAdapter(
 
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
         data.removeAt(fromPosition).apply {
-            data.add(if (toPosition > fromPosition) toPosition - 1 else toPosition, this)
+            data.add(toPosition, this)
         }
         notifyItemMoved(fromPosition, toPosition)
     }

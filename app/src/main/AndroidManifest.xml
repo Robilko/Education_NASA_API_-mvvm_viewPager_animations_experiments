@@ -12,10 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/DefaultTheme">
         <activity
-            android:name=".ui.main.view.animations.AnimationsActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.main.view.MainActivity"
+            android:name=".ui.main.view.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.main.view.animations.AnimationsActivity"/>
+        <activity android:name=".ui.main.view.MainActivity"/>
         <activity android:name=".ui.main.view.api.ApiActivity" />
         <activity android:name=".ui.main.view.recycler.RecyclerActivity" />
 

@@ -13,6 +13,7 @@
     <color name="recycle_item_red">#B10D09</color>
     <color name="recycler_background">#B5B5BB</color>
     <color name="recycler_item_selected_background">#CDCDD1</color>
+    <color name="splash_background">#4C4C4C</color>
 
     <!--    Default theme colors-->
     <!-- Primary brand color. -->
