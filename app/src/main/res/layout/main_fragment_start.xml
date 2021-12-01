@@ -2,7 +2,8 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -106,7 +107,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chip_layout">
+                app:layout_constraintTop_toBottomOf="@id/chip_layout"
+                tools:ignore="WebViewLayout">
 
                 <com.example.photoeveryday.ui.main.utils.EquilateralImageView
                     android:id="@+id/image_view"
@@ -115,7 +117,16 @@
                     android:layout_gravity="center"
                     android:contentDescription="@string/photo_of_the_day_stub"
                     android:paddingVertical="@dimen/padding_default"
-                    app:srcCompat="@drawable/ic_no_photo_vector" />
+                    app:srcCompat="@drawable/ic_no_photo_vector"
+                    android:visibility="visible"/>
+
+                <WebView
+                    android:id="@+id/video_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center"
+                    android:paddingVertical="@dimen/padding_default"
+                    android:visibility="gone"/>
 
                 <include
                     android:id="@+id/included_loading_layout"

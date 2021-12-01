@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/DefaultTheme">
         <activity
+            android:name=".ui.main.view.AnimationsActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.main.view.MainActivity"
             android:exported="true">
             <intent-filter>
